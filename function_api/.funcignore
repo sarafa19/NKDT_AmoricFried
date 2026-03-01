@@ -1,0 +1,6 @@
+# Add files and folders to ignore during deployment
+# See https://docs.microsoft.com/azure/azure-functions/functions-deploy-zip-push#funcignore
+
+__pycache__/
+*.pyc
+.local*
