@@ -1,0 +1,90 @@
+table silver_sales
+	lineageTag: b44a4fef-c0ce-461e-95a6-316131cc4f1a
+	sourceLineageTag: [dbo].[silver_sales]
+
+	measure 'Total Quantity' = SUM(silver_sales[quantity])
+		formatString: 0
+		lineageTag: 926546ef-1436-434c-862b-03f7d7a880e9
+
+		changedProperty = Name
+
+	column username
+		dataType: string
+		lineageTag: 984e8404-a501-4233-b9d1-4862844c349f
+		sourceLineageTag: username
+		summarizeBy: none
+		sourceColumn: username
+
+		annotation SummarizationSetBy = Automatic
+
+	column sale_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f840d90e-a031-45ec-87ac-0c35e42849a7
+		sourceLineageTag: sale_date
+		summarizeBy: none
+		sourceColumn: sale_date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column country
+		dataType: string
+		lineageTag: fde91598-3145-422e-8ee0-0e7f2d8f9052
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column product
+		dataType: string
+		lineageTag: 978b3357-a2a4-4440-9df9-8f64d018cda4
+		sourceLineageTag: product
+		summarizeBy: none
+		sourceColumn: product
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 02e80214-cc50-4c26-a72e-f2177cf1dba3
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: 48d0b729-ee36-47c3-a62d-0bfa8d7df44b
+		sourceLineageTag: unit_price
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_amount
+		dataType: double
+		lineageTag: 54ff0784-aeac-4c6f-86c4-be6b025ddc82
+		sourceLineageTag: total_amount
+		summarizeBy: sum
+		sourceColumn: total_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition silver_sales = entity
+		mode: directLake
+		source
+			entityName: silver_sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - Sales_Lakehouse'
+

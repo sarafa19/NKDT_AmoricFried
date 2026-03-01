@@ -1,0 +1,117 @@
+table silver_feedback
+	lineageTag: b42f68f6-106d-4a45-86be-5eca3f6e37a6
+	sourceLineageTag: [dbo].[silver_feedback]
+
+	column campaign_id
+		dataType: string
+		lineageTag: 04aa99ea-6f47-4c37-afaa-82b22c13a5d4
+		sourceLineageTag: campaign_id
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column comment
+		dataType: string
+		lineageTag: 2052dec4-0f4b-4ec7-bd95-8a94f2318ebd
+		sourceLineageTag: comment
+		summarizeBy: none
+		sourceColumn: comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column feedback_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6dd88137-2cbf-4145-a606-84ea4f116707
+		sourceLineageTag: feedback_date
+		summarizeBy: none
+		sourceColumn: feedback_date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column key_adjectives
+		dataType: string
+		lineageTag: 205279cc-fead-4375-be75-7eb876eebd44
+		sourceLineageTag: key_adjectives
+		summarizeBy: none
+		sourceColumn: key_adjectives
+
+		annotation SummarizationSetBy = Automatic
+
+	column marketing_dimension
+		dataType: string
+		lineageTag: ebdd0808-9cfa-45b0-a5e2-8c3c84451fa0
+		sourceLineageTag: marketing_dimension
+		summarizeBy: none
+		sourceColumn: marketing_dimension
+
+		annotation SummarizationSetBy = Automatic
+
+	column processed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f55266da-d1bb-40eb-b2df-d97b1534e2c3
+		sourceLineageTag: processed_at
+		summarizeBy: none
+		sourceColumn: processed_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column sentiment_label
+		dataType: string
+		lineageTag: a51ec1e1-c499-4094-b2c3-baa36e793f9e
+		sourceLineageTag: sentiment_label
+		summarizeBy: none
+		sourceColumn: sentiment_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column star_rating
+		dataType: int64
+		formatString: 0
+		lineageTag: 56f90c06-2555-48cf-bce5-8ee902fdd5c4
+		sourceLineageTag: star_rating
+		summarizeBy: sum
+		sourceColumn: star_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column username
+		dataType: string
+		lineageTag: ac6d6a53-84da-4679-8df6-dc54174e7bd0
+		sourceLineageTag: username
+		summarizeBy: none
+		sourceColumn: username
+
+		annotation SummarizationSetBy = Automatic
+
+	column feedback_id
+		dataType: string
+		lineageTag: aeecb82d-903a-4d78-970c-9c2ac8e65f24
+		sourceLineageTag: feedback_id
+		summarizeBy: none
+		sourceColumn: feedback_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column english_translation
+		dataType: string
+		lineageTag: f292b514-9776-4091-a8d2-37e0f917e644
+		sourceLineageTag: english_translation
+		summarizeBy: none
+		sourceColumn: english_translation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition silver_feedback = entity
+		mode: directLake
+		source
+			entityName: silver_feedback
+			schemaName: dbo
+			expressionSource: 'DirectLake - Sales_Lakehouse'
+

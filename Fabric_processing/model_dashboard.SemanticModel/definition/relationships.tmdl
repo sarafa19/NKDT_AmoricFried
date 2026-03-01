@@ -1,0 +1,8 @@
+relationship 4997c6fd-54ae-d2d8-4299-6baafec2f60a
+	fromColumn: silver_sales.sale_date
+	toColumn: Calendrier.Date
+
+relationship c82cd570-5dbd-8839-50b5-d30f29429d5d
+	fromColumn: silver_feedback.feedback_date
+	toColumn: Calendrier.Date
+

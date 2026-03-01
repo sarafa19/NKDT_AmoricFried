@@ -1,0 +1,99 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "b02cf7095b85d49e70da",
+  "position": {
+    "x": 9.7694387024964229,
+    "y": 0,
+    "z": 0,
+    "height": 217.37001113054541,
+    "width": 758.35267928128485,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver_feedback"
+                    }
+                  },
+                  "Property": "comment"
+                }
+              },
+              "queryRef": "silver_feedback.comment",
+              "nativeQueryRef": "comment"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "silver_feedback"
+                        }
+                      },
+                      "Property": "star_rating"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(silver_feedback.star_rating)",
+              "nativeQueryRef": "Sum of star_rating"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver_feedback"
+                    }
+                  },
+                  "Property": "sentiment_label"
+                }
+              },
+              "queryRef": "silver_feedback.sentiment_label",
+              "nativeQueryRef": "sentiment_label"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver_feedback"
+                    }
+                  },
+                  "Property": "campaign_id"
+                }
+              },
+              "queryRef": "silver_feedback.campaign_id",
+              "nativeQueryRef": "campaign_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver_feedback"
+                    }
+                  },
+                  "Property": "marketing_dimension"
+                }
+              },
+              "queryRef": "silver_feedback.marketing_dimension",
+              "nativeQueryRef": "marketing_dimension"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,68 @@
+table Calendrier
+	lineageTag: 85ab216d-79f8-494a-86ce-03f7d6c14721
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Long Date
+		lineageTag: 1caab158-6ba6-4789-a022-945d6974b4b1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Année
+		dataType: string
+		lineageTag: d257ea32-cea5-44fa-afd5-ae8ebabd7093
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Année]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mois
+		lineageTag: f7dabd42-79ff-4f3a-8be4-497a984126da
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mois]
+		sortByColumn: 'Mois Num'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mois Num'
+		dataType: string
+		lineageTag: 4147ac31-bb51-44cc-bdfe-94c7f6d6ac6c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mois Num]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Année-Mois
+		lineageTag: c739b7b6-1329-4884-9084-7421bd4f61fa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Année-Mois]
+		sortByColumn: Année
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendrier = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(DATE(2024,1,1), DATE(2026,12,31)),
+				    "Année", YEAR([Date]),
+				    "Mois", FORMAT([Date], "MMMM"),
+				    "Mois Num", MONTH([Date]),
+				    "Année-Mois", FORMAT([Date], "YYYY-MM")
+				)
+
+	annotation PBI_Id = 9bd35c7408fe4405b9f2358a7474196e
+

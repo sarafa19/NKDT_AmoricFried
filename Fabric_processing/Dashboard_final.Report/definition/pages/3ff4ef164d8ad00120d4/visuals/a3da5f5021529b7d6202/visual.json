@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "a3da5f5021529b7d6202",
+  "position": {
+    "x": 826.73875019875982,
+    "y": 0,
+    "z": 1,
+    "height": 217.37001113054541,
+    "width": 379.78692955954841,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "WordCloud1447959067750",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "silver_feedback"
+                    }
+                  },
+                  "Property": "key_adjectives"
+                }
+              },
+              "queryRef": "silver_feedback.key_adjectives",
+              "nativeQueryRef": "key_adjectives"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
